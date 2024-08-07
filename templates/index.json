@@ -38,7 +38,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Week_1_June_1-7_Summer_Wellness_is_here_5_3000x_d4af081a-9f2c-4d20-9566-77bac0a1b34c.webp",
+        "image": "shopify:\/\/shop_images\/3_Web_Banner.png",
         "image_overlay_opacity": 10,
         "image_height": "large",
         "desktop_content_position": "middle-left",
@@ -53,6 +53,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
