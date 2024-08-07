@@ -1,0 +1,231 @@
+<style>
+  .counter-sale-wrapper{
+    background-image:url({{section.settings.sale_img | img_url: 'master'}});
+    background-size: cover;
+    height:70vh;
+    width: 100%;
+    position: relative;
+    
+  }
+
+
+  .counter-box{
+    position: absolute;
+    top:{{section.settings.counter_position_top_dsk}}%;
+    left: {{section.settings.counter_position_left_dsk}}%;
+    transform:translate(-{{ section.settings.counter_position_left_dsk }}%,-{{section.settings.counter_position_top_dsk}}%);
+    
+/*     border: 1px solid; */
+    color: #fff;
+    width: 25%;
+  }
+  .counter-box .c-head{
+    color: {{section.settings.heading_color}};
+    font-size:30px;
+    text-align: center;
+  }
+  .counter-box .counter-row{
+    display: flex;
+    justify-content: space-between;
+  }
+  .counter-box .counter-row .counter-coll{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .counter-box .counter-coll .c-col-para{
+    color: {{section.settings.counter_color}};
+    font-size: 70px;
+  }
+
+
+  .counter-row .counter-coll .bottom-para{
+    color: {{section.settings.counter_bottom_color}};
+    font-size:20px;
+  }
+
+
+
+  @media(max-width: 767px){
+    .counter-box{
+      position: absolute;
+      top:{{section.settings.counter_position_top_mbl}}%;
+      left: {{section.settings.counter_position_left_mbl}}%;
+      transform:translate(-{{ section.settings.counter_position_left_mbl }}%,-{{section.settings.counter_position_top_mbl}}%);
+/*       border: 1px solid; */
+      width: 50%;
+    }
+    .counter-box .counter-coll .c-col-para{
+      font-size: 60px;
+    }
+    .counter-row .counter-coll .bottom-para{
+      font-size:17px;
+    }
+  }
+</style>
+  {% assign counter_time = section.settings.counter_time %}
+    {% comment %}
+      <p class="kkkkkkkkkkkkkk">{{ counter_time }}</p>
+    {% endcomment %}
+    {% if section.settings.enable_counter  == true %}
+<div class="counter-sale-wrapper">
+  <div class="counter-sale-container">
+    <div class="counter-box">
+      <p class="c-head">
+        {{ section.settings.c_heading }}
+
+        <div class="counter-row">
+          
+            <div class="counter-coll">
+              <p class="c-col-para c-day"></p>
+              <p class="bottom-para">Days</p>
+            </div>
+          
+            <div class="counter-coll">
+              <p class="c-col-para c-hour"></p>
+              <p class="bottom-para">Hours</p>
+            </div>
+            <div class="counter-coll">
+              <p class="c-col-para c-minute"></p>
+              <p class="bottom-para">Minutes</p>
+            </div>
+            <div class="counter-coll">
+              <p class="c-col-para c-secend"></p>
+              <p class="bottom-para">Seconds</p>
+            </div>
+        </div>
+        
+      </p>
+    </div>
+  </div>
+</div>
+
+    {% endif %}
+{% schema %}
+  {
+    "name": "Timer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "label": "Enable Counter Section",
+        "id": "enable_counter"
+      },
+      {
+        "type": "image_picker",
+        "label": "Pick a background Images",
+        "id": "sale_img"
+      },
+      {
+        "type": "text",
+        "label": "Enter Text For Heading",
+        "id": "c_heading"
+      },
+      {
+        "type": "color",
+        "label": "Color for Text",
+        "id": "heading_color"
+      },
+      {
+        "type": "text",
+        "label": "Enter time for counter",
+        "id": "counter_time",
+        "info":"example | mm-dd-yyyy"
+      },
+      {
+        "type": "color",
+        "label": "Color for Counter Text",
+        "id": "counter_color"
+      },
+      {
+        "type": "color",
+        "label": "Color for Counter Bottom Text",
+        "id": "counter_bottom_color"
+      },
+      {
+        "type": "range",
+        "id": "counter_position_left_dsk",
+        "min": 5,
+        "max": 90,
+        "step": 1,
+        "unit": "%",
+        "label": "position left/Right Desktop",
+        "default": 70
+      },
+      {
+        "type": "range",
+        "id": "counter_position_top_dsk",
+        "min": 5,
+        "max": 90,
+        "step": 1,
+        "unit": "%",
+        "label": "position top/bottom Desktop",
+        "default": 70
+      },
+       {
+        "type": "range",
+        "id": "counter_position_left_mbl",
+        "min": 5,
+        "max": 90,
+        "step": 1,
+        "unit": "%",
+        "label": "position left/Right Mobile",
+        "default": 70
+      },
+      {
+        "type": "range",
+        "id": "counter_position_top_mbl",
+        "min": 5,
+        "max": 90,
+        "step": 1,
+        "unit": "%",
+        "label": "position top/Bottom Mobile",
+        "default": 70
+      }
+
+      
+    ],
+    "presets": [
+      {
+      "category": "images",
+      "name": "Counter sale "
+        }
+    ]
+  }
+{% endschema %}
+
+
+
+<script>
+
+  
+
+  var s_counter = '{{counter_time }}';
+
+  var dest = new Date(s_counter).getTime();
+
+  var x = setInterval(function(){
+  var now = new Date().getTime();
+  var diff = dest - now
+
+
+var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+var hours = Math.floor(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+var minutes = Math.floor(diff % (1000 * 60 * 60) / (1000 * 60));
+var seconds = Math.floor(diff % (1000 * 60) / (1000));
+
+console.log("Selected date" + "  " + dest)
+console.log("Current date" + "   " + now)
+console.log("different" + "      " + diff)
+console.log("days consumes" + "  " + days)
+console.log("Hour consumes" + "  " + hours)
+console.log("Hour consumes" + "  " + minutes)
+console.log("Hour consumes" + "  " + seconds)
+
+
+  $('.c-day').text(days);
+  $('.c-hour').text(hours);
+  $('.c-minute').text(minutes);
+  $('.c-secend').text(seconds)
+
+});
+</script>

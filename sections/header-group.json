@@ -1,0 +1,87 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free 2-day shipping over $75",
+            "text_alignment": "center",
+            "color_scheme": "accent-1",
+            "link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0565\/6231\/9394\/files\/gouo5jlhp3illh0010a.svg?v=1692344706"
+          }
+        },
+        "d9d700fd-5fe4-4c59-a79e-082be109f66b": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Welcome to our store",
+            "text_alignment": "center",
+            "color_scheme": "accent-1",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0",
+        "d9d700fd-5fe4-4c59-a79e-082be109f66b"
+      ],
+      "settings": {
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "589ea7c6-00a5-4836-b347-70fcca986fdd": {
+          "type": "link",
+          "settings": {
+            "main_linklist": "Brand directory",
+            "link-list": "shopify:\/\/pages\/about-page"
+          }
+        },
+        "0f53153c-75c9-47e4-97fc-a35f4381d5e0": {
+          "type": "link",
+          "settings": {
+            "main_linklist": "About Us",
+            "link-list": "shopify:\/\/pages\/faqs"
+          }
+        },
+        "feb17dbe-bd87-4a7b-915e-15974c78ae6e": {
+          "type": "link",
+          "settings": {
+            "main_linklist": "Blog",
+            "link-list": "shopify:\/\/pages\/faqs"
+          }
+        }
+      },
+      "block_order": [
+        "589ea7c6-00a5-4836-b347-70fcca986fdd",
+        "0f53153c-75c9-47e4-97fc-a35f4381d5e0",
+        "feb17dbe-bd87-4a7b-915e-15974c78ae6e"
+      ],
+      "settings": {
+        "logo_position": "middle-center",
+        "menu": "main-menu-1",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "single-menu": "Store Locator",
+        "link-url": "shopify:\/\/pages\/about-page"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
